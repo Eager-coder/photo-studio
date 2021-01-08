@@ -120,62 +120,74 @@ export const portraitsUlrs = [
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait21.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121977/photo-studio/portraits/portrait21.jpg",
 		width: 1,
 		height: 1.5,
 	},
 	{
-		src: "/assets/images/portraits/portrait22.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121986/photo-studio/portraits/portrait22.jpg",
 		width: 1.5,
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait23.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121980/photo-studio/portraits/portrait23.jpg",
 		width: 1.5,
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait24.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121993/photo-studio/portraits/portrait24.jpg",
 		width: 1.5,
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait25.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121964/photo-studio/portraits/portrait25.jpg",
 		width: 1.5,
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait26.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121965/photo-studio/portraits/portrait26.jpg",
 		width: 1.5,
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait27.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121942/photo-studio/portraits/portrait27.jpg",
 		width: 1.5,
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait28.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121962/photo-studio/portraits/portrait28.jpg",
 		width: 1,
 		height: 1.5,
 	},
 	{
-		src: "/assets/images/portraits/portrait29.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121957/photo-studio/portraits/portrait29.jpg",
 		width: 1.5,
 		height: 1,
 	},
 	{
-		src: "/assets/images/portraits/portrait30.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121954/photo-studio/portraits/portrait30.jpg",
 		width: 1,
 		height: 1.5,
 	},
 	{
-		src: "/assets/images/portraits/portrait31.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121946/photo-studio/portraits/portrait31.jpg",
 		width: 1,
 		height: 1.5,
 	},
 	{
-		src: "/assets/images/portraits/portrait32.jpg",
+		src:
+			"https://res.cloudinary.com/turan-cloud/image/upload/v1610121944/photo-studio/portraits/portrait32.jpg",
 		width: 1,
 		height: 1.5,
 	},
