@@ -52,7 +52,10 @@ export default function PortfolioPage() {
 				<h1>Портфолио</h1>
 				<div className="flex">
 					<Link to="/portfolio/portrait" className="card">
-						<img src="/assets/images/portraits/portrait1.jpg" alt="" />
+						<img
+							src="https://res.cloudinary.com/turan-cloud/image/upload/v1610122075/photo-studio/portraits/portrait1.jpg"
+							alt=""
+						/>
 						<h2>Индивидуальная</h2>
 					</Link>
 					<Link to="/portfolio/family" className="card">
@@ -63,7 +66,10 @@ export default function PortfolioPage() {
 						<h2>Семейная</h2>
 					</Link>
 					<Link to="/portfolio/wedding" className="card">
-						<img src="/assets/images/wedding/wedding3.jpg" alt="" />
+						<img
+							src="https://res.cloudinary.com/turan-cloud/image/upload/v1610126623/photo-studio/wedding/wedding3.jpg"
+							alt=""
+						/>
 						<h2>Свадебная</h2>
 					</Link>
 				</div>
