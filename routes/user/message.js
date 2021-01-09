@@ -22,4 +22,17 @@ router.post("/", checkAuth, async (req, res) => {
 	}
 })
 
+router.delete("/", checkAuth, async (req, res) => {
+	try {
+		// const { user_id } = req.user
+		const { message_id } = req.body
+		await pool.query(`DELETE FROM messages WHERE id = '${message_id}'`)
+
+		return res.json({ message: "Успешно удалено" })
+	} catch (error) {
+		console.error("DELETE MESSAGE", error)
+		return res.status(500).json({ message: "Что-то пошло не так" })
+	}
+})
+
 module.exports = router

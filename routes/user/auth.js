@@ -9,17 +9,17 @@ const mysql = require("mysql2")
 router.post("/register", async (req, res) => {
 	const { name, surname, telNumber, password, password2 } = req.body
 	if (!name || !surname || !telNumber || !password || !password2)
-		return res.status(400).json({ message: "Please fill all the fields" })
+		return res.status(400).json({ message: "Заполните все поля" })
 	if (password !== password2)
-		return res.status(400).json({ message: "Passwords don't match" })
+		return res.status(400).json({ message: "Пароли не совпадают" })
 	if (password.length < 8)
 		return res
 			.status(400)
-			.json({ message: "Password must be at least 8 characters long" })
+			.json({ message: "Пароль должен содержать минимум 8 символов" })
 	const regExp = /[a-zA-Z]/g
 
 	if (regExp.test(telNumber))
-		return res.status(400).json({ message: "Invalid phone number" })
+		return res.status(400).json({ message: "Некорретный номер" })
 
 	try {
 		const [allNumbers] = await pool.query(`SELECT tel_number from users`)
@@ -124,7 +124,6 @@ router.post("/login", async (req, res) => {
 	} catch (e) {
 		console.log("REGISTER", e)
 		return res.status(500).json({ message: "Что-то пошло не так" })
-
 	}
 })
 

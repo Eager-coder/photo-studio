@@ -8,20 +8,6 @@ import Calendar from "../components/Admin/Calendar"
 import { getOrders, getCalendar } from "../api/admin/order"
 import Loading from "../components/Loading"
 
-const AdminPageEl = styled.div`
-	max-width: 1200px;
-	margin: 20px auto;
-	display: flex;
-	h1 {
-		font-size: 3rem;
-		font-weight: 500;
-		margin-bottom: 30px;
-	}
-	@media (max-width: 768px) {
-		display: block;
-	}
-`
-
 export default function AdminPage() {
 	const { user, setUser } = useContext(UserContext)
 	const [orders, setOrders] = useState(null)
@@ -50,3 +36,17 @@ export default function AdminPage() {
 
 	return <Loading size={200} />
 }
+
+const AdminPageEl = styled.div`
+	max-width: 1200px;
+	margin: 20px auto;
+	display: flex;
+	h1 {
+		font-size: 3rem;
+		font-weight: 500;
+		margin-bottom: 30px;
+	}
+	@media (max-width: 768px) {
+		display: block;
+	}
+`
