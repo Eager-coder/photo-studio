@@ -29,7 +29,7 @@ export default function Footer() {
 				<a
 					href="https://www.instagram.com/vershininkz87/?hl=en"
 					target="_blank">
-					©Владимир Вершинин 2021
+					©Александр Вершинин 2021
 				</a>
 			</div>
 			<p>Семейная и свадебная съёмка премиального качества.</p>
