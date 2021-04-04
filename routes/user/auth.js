@@ -10,16 +10,12 @@ router.post("/register", async (req, res) => {
 	const { name, surname, telNumber, password, password2 } = req.body
 	if (!name || !surname || !telNumber || !password || !password2)
 		return res.status(400).json({ message: "Заполните все поля" })
-	if (password !== password2)
-		return res.status(400).json({ message: "Пароли не совпадают" })
+	if (password !== password2) return res.status(400).json({ message: "Пароли не совпадают" })
 	if (password.length < 8)
-		return res
-			.status(400)
-			.json({ message: "Пароль должен содержать минимум 8 символов" })
+		return res.status(400).json({ message: "Пароль должен содержать минимум 8 символов" })
 	const regExp = /[a-zA-Z]/g
 
-	if (regExp.test(telNumber))
-		return res.status(400).json({ message: "Некорретный номер" })
+	if (regExp.test(telNumber)) return res.status(400).json({ message: "Некорретный номер" })
 
 	try {
 		const [allNumbers] = await pool.query(`SELECT tel_number from users`)
@@ -28,15 +24,13 @@ router.post("/register", async (req, res) => {
 
 		allNumbers.forEach(item => console.log(item.tel_number))
 
-		if (hasExist)
-			return res.status(400).json({ message: "Этот номер уже зарегистрирован" })
+		if (hasExist) return res.status(400).json({ message: "Этот номер уже зарегистрирован" })
 		const hashedPassword = bcrypt.hashSync(password, 10)
 
 		const [newUser] = await pool.query(`
 			INSERT INTO users (name, surname, tel_number, password)
 			VALUES ('${name}', '${surname}',${mysql.escape(telNumber)}, '${hashedPassword}')
 		`)
-		console.log(newUser.insertId)
 		const token = sign(
 			{
 				user_id: newUser.insertId,
@@ -74,23 +68,19 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
 	const { telNumber, password } = req.body
 
-	if (!telNumber || !password)
-		return res.status(400).json({ message: "Заполните все поля" })
+	if (!telNumber || !password) return res.status(400).json({ message: "Заполните все поля" })
 
 	try {
 		const [users] = await pool.query(`
 			SELECT * from users WHERE tel_number = '${telNumber}'
 		`)
-		if (!users.length)
-			return res.status(400).json({ message: "Некорректный номер или пароль" })
+		if (!users.length) return res.status(400).json({ message: "Некорректный номер или пароль" })
 
 		const isMatch = await bcrypt.compare(password, users[0].password)
 
-		if (!isMatch)
-			return res.status(400).json({ message: "Некорректный номер или пароль" })
+		if (!isMatch) return res.status(400).json({ message: "Некорректный номер или пароль" })
 
-		const { id, name, surname, tel_number, isAdmin } = users[0]
-		console.log(users[0])
+		const { id, name, surname, tel_number, is_admin } = users[0]
 
 		const token = sign(
 			{
@@ -98,7 +88,7 @@ router.post("/login", async (req, res) => {
 				name,
 				surname,
 				tel_number,
-				isAdmin: isAdmin ? true : false,
+				isAdmin: is_admin ? true : false,
 			},
 			process.env.JWT_SECRET,
 			{
@@ -118,7 +108,7 @@ router.post("/login", async (req, res) => {
 					name,
 					surname,
 					tel_number: telNumber,
-					isAdmin: isAdmin ? true : false,
+					isAdmin: is_admin ? true : false,
 				},
 			})
 	} catch (e) {

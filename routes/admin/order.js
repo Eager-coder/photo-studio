@@ -51,7 +51,6 @@ router.post("/", checkAdminAuth, async (req, res) => {
 	try {
 		const { tariff, type, address, numOfPeople, date, time } = req.body
 		const { user_id } = req.user
-
 		if (!tariff || !type || !address || !numOfPeople || !date || !time)
 			return res.status(400).json({ message: "Заполните все поля" })
 
@@ -87,8 +86,7 @@ router.put("/status", checkAdminAuth, async (req, res) => {
 router.post("/upload_url", checkAdminAuth, async (req, res) => {
 	try {
 		const { order_id, imgUrl } = req.body
-		if (!imgUrl || !order_id)
-			return res.status(400).json({ message: "Заполните все поля" })
+		if (!imgUrl || !order_id) return res.status(400).json({ message: "Заполните все поля" })
 		const result = await pool.query(`
 			UPDATE orders SET img_url = ${mysql.escape(imgUrl)}
 			WHERE id = '${order_id}'

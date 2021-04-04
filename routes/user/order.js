@@ -38,6 +38,7 @@ router.post("/", checkAuth, async (req, res) => {
 	try {
 		const { tariff, type, address, numOfPeople, date, time } = req.body
 		const { user_id } = req.user
+		console.log(req.body)
 
 		if (!tariff || !type || !address || !numOfPeople || !date || !time)
 			return res.status(400).json({ message: "Заполните все поля" })
